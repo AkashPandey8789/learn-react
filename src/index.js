@@ -46,19 +46,44 @@ const pizzaData = [
 ];
 function App(){
     
-    return <div><h1>Hello React!!</h1><p>Js</p>
-        <Pizza/>
-        <Pizza/>
+    return <div>
+        <Header />
+        <Menu/>
+        <Footer/>
+    </div>;
+}
+
+function Header(){
+    return <h1> Fast React Pizza Co.</h1>
+}
+
+function Menu(){
+    return <div>
+        <h2>Our menu</h2>
         <Pizza/>
     </div>;
 }
 
+function Footer(){
+    const hour=new Date().getHours();
+    const openHour=12;
+    const closeHour=22;
+    const isOpen =hour>=openHour && hour<=closeHour;
+    console.log(isOpen);
+    // if(hour>=openHour && hour<=closeHour)alert("We're currently open!");
+    // else alert('we are closed!');
+    return <footer>{ new Date().toLocaleTimeString()} We're currently open!</footer>
+    // return React.createElement('footer',null,"We're currently open!")
+}
+
 function Pizza(){
-    return <div>
-        <img src='pizzas/prosciutto.jpg' alt='Pizza Prosciutto'/>
-        <h2>Pizza Prosciutto</h2>
-        <p>Tomato, mozarella, ham, aragula, and burrata cheese</p>
-    </div>;
+    const pizzaList=pizzaData.map(pizza=><div><img src={pizza.photoName }alt={pizza.name}/><h2>{pizza.name}</h2><p>{pizza.ingredients}</p></div>)
+    return pizzaList;
+    // <div>
+    //     <img src='pizzas/prosciutto.jpg' alt='Pizza Prosciutto'/>
+    //     <h2>Pizza Prosciutto</h2>
+    //     <p>Tomato, mozarella, ham, aragula, and burrata cheese</p>
+    // </div>;
 }
 const root=ReactDOM.createRoot(document.getElementById('root'));
 root.render(
