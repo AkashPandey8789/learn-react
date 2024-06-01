@@ -58,9 +58,10 @@ function Header(){
 }
 
 function Menu(){
+    const pizzaCompList=pizzaData.map(pizza=><Pizza imgUrl={pizza.photoName} pizzaName={pizza.name} pizzaIngredient={pizza.ingredients}/>)
     return <div>
         <h2>Our menu</h2>
-        <Pizza/>
+        {pizzaCompList}
     </div>;
 }
 
@@ -76,9 +77,14 @@ function Footer(){
     // return React.createElement('footer',null,"We're currently open!")
 }
 
-function Pizza(){
-    const pizzaList=pizzaData.map(pizza=><div><img src={pizza.photoName }alt={pizza.name}/><h2>{pizza.name}</h2><p>{pizza.ingredients}</p></div>)
-    return pizzaList;
+function Pizza(props){
+    return <div id={props.pizzaName}>
+        <img src={props.imgUrl} alt={props.pizzaName}/>
+         <h2>{props.pizzaName}</h2>
+        <p>{props.pizzaIngredient}</p>
+    </div>
+    // const pizzaList=pizzaData.map(pizza=><div><img src={pizza.photoName }alt={pizza.name}/><h2>{pizza.name}</h2><p>{pizza.ingredients}</p></div>)
+    // return pizzaList;
     // <div>
     //     <img src='pizzas/prosciutto.jpg' alt='Pizza Prosciutto'/>
     //     <h2>Pizza Prosciutto</h2>
