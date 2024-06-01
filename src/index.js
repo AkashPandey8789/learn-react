@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import "./index.css";
 const pizzaData = [
   {
     name: "Focaccia",
@@ -45,8 +46,8 @@ const pizzaData = [
   },
 ];
 function App(){
-    
-    return <div>
+    //we need to use className instead of class ...
+    return <div className='container'>
         <Header />
         <Menu/>
         <Footer/>
@@ -54,7 +55,9 @@ function App(){
 }
 
 function Header(){
-    return <h1> Fast React Pizza Co.</h1>
+    //to style component we need to create a javascript object of style and add that like below...
+    const style={color:"red",fontSize:"48px" , textTransform:"uppercase"};
+    return <h1 style={style}> Fast React Pizza Co.</h1>
 }
 
 function Menu(){
