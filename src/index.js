@@ -89,8 +89,8 @@ function Footer(){
 }
 
 function Pizza(props){
-    if(props.soldOut) return null;
-    return <li id={props.pizzaName} className='pizza'>
+    // if(props.soldOut) return null;
+    return <li id={props.pizzaName} className={`pizza ${props.soldOut ?"sold-out":""}`}>
         <img src={props.imgUrl} alt={props.pizzaName}/>
          <div>
             <h3>{props.pizzaName}</h3>
