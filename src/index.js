@@ -56,16 +56,16 @@ function App(){
 
 function Header(){
     //to style component we need to create a javascript object of style and add that like below...
-    const style={color:"red",fontSize:"48px" , textTransform:"uppercase"};
-    return <h1 style={style}> Fast React Pizza Co.</h1>
+    // const style={color:"red",fontSize:"48px" , textTransform:"uppercase"};
+    return <header className='header'><h1 > Fast React Pizza Co.</h1></header>
 }
 
 function Menu(){
     const pizzaCompList=pizzaData.map(pizza=><Pizza imgUrl={pizza.photoName} pizzaName={pizza.name} pizzaIngredient={pizza.ingredients}/>)
-    return <div>
+    return <main className='menu'>
         <h2>Our menu</h2>
         {pizzaCompList}
-    </div>;
+    </main>;
 }
 
 function Footer(){
@@ -76,14 +76,14 @@ function Footer(){
     console.log(isOpen);
     // if(hour>=openHour && hour<=closeHour)alert("We're currently open!");
     // else alert('we are closed!');
-    return <footer>{ new Date().toLocaleTimeString()} We're currently open!</footer>
+    return <footer className='footer'>{ new Date().toLocaleTimeString()} We're currently open!</footer>
     // return React.createElement('footer',null,"We're currently open!")
 }
 
 function Pizza(props){
     return <div id={props.pizzaName}>
         <img src={props.imgUrl} alt={props.pizzaName}/>
-         <h2>{props.pizzaName}</h2>
+         <h3>{props.pizzaName}</h3>
         <p>{props.pizzaIngredient}</p>
     </div>
     // const pizzaList=pizzaData.map(pizza=><div><img src={pizza.photoName }alt={pizza.name}/><h2>{pizza.name}</h2><p>{pizza.ingredients}</p></div>)
